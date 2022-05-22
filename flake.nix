@@ -21,6 +21,7 @@
       supportedGHCVersion = "921";
       compilerVersion = "ghc${supportedGHCVersion}";
       pkgs = nixpkgs.legacyPackages.${system};
+      # base = pkgs.haskell.packages.base;
       hsPkgs = pkgs.haskell.packages.${compilerVersion}.override {
         overrides = hfinal: hprev: {
           aaa = hfinal.callCabal2nix "aaa" ./. {};
@@ -31,7 +32,7 @@
       packages =
         utils.flattenTree
         {aaa = hsPkgs.aaa;
-        mtlA = import ./mtlA.nix {};
+        mtlA = hsPkgs.callPackage ./mtlA.nix {};
         };
       # nix flake check
       checks = {
@@ -62,8 +63,6 @@
             haskellPackages.fourmolu
             haskellPackages.cabal-fmt
             nodePackages.serve
-            mtlA
-            # hello
           ]
           ++ (builtins.attrValues (import ./scripts.nix {s = pkgs.writeShellScriptBin;}));
       };

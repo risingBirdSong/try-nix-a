@@ -57,6 +57,7 @@ common common-opts
     , unordered-containers
   
     -- , split == 0.2.3.3
+    -- , mtl == 2.2.0.1
     , mtl
     -- Utilities
     , text
@@ -82,14 +83,14 @@ executable aaa
       app
   build-depends: aaa
 
-test-suite test
-  import: common-opts
-  type: exitcode-stdio-1.0
-  main-is: Test.hs
-  hs-source-dirs:
-      test
-  build-depends:
-    , aaa
-    , QuickCheck
-    , hspec
-    , hspec-expectations
+-- test-suite test
+--   import: common-opts
+--   type: exitcode-stdio-1.0
+--   main-is: Test.hs
+--   hs-source-dirs:
+--       test
+--   build-depends:
+--     , aaa
+--     , QuickCheck
+--     , hspec
+--     , hspec-expectations
