@@ -24,7 +24,7 @@ let
           primitive safe-exceptions text unordered-containers vector
         ];
         testHaskellDepends = [
-          aeson async base binary bytestring containers deriving-aeson foldl
+          aeson async base binary bytestring containers deriving-aeson foldl  
           hspec hspec-expectations primitive QuickCheck safe-exceptions text
           unordered-containers vector
         ];

@@ -55,7 +55,9 @@ common common-opts
     -- Containers
     , containers
     , unordered-containers
-
+  
+    -- , split == 0.2.3.3
+    , mtl
     -- Utilities
     , text
     , foldl

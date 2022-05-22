@@ -24,13 +24,15 @@
       hsPkgs = pkgs.haskell.packages.${compilerVersion}.override {
         overrides = hfinal: hprev: {
           aaa = hfinal.callCabal2nix "aaa" ./. {};
+          mtlA = hfinal.callCabal2nix "mtlA" ./. {};
         };
       };
     in rec {
       packages =
         utils.flattenTree
-        {aaa = hsPkgs.aaa;};
-
+        {aaa = hsPkgs.aaa;
+        mtlA = import ./mtlA.nix {};
+        };
       # nix flake check
       checks = {
         pre-commit-check = pre-commit-hooks.lib.${system}.run {
@@ -49,6 +51,7 @@
         withHoogle = true;
         packages = p: [
           p.aaa
+          p.mtlA
         ];
         buildInputs = with pkgs;
           [
@@ -59,6 +62,8 @@
             haskellPackages.fourmolu
             haskellPackages.cabal-fmt
             nodePackages.serve
+            mtlA
+            # hello
           ]
           ++ (builtins.attrValues (import ./scripts.nix {s = pkgs.writeShellScriptBin;}));
       };
