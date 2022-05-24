@@ -1,8 +1,10 @@
 { mkDerivation, base, lib, transformers }:
 mkDerivation {
   pname = "mtl";
-  version = "2.2.0.1";
-  sha256 = "2b03d08f22448e0db092249df5c6457d7a192cbfdd9fa7bf20e982dbc8630611";
+  version = "2.2.1";
+  sha256 = "cae59d79f3a16f8e9f3c9adc1010c7c6cdddc73e8a97ff4305f6439d855c8dc5";
+  revision = "1";
+  editedCabalFile = "0fsa965g9h23mlfjzghmmhcb9dmaq8zpm374gby6iwgdx47q0njb";
   libraryHaskellDepends = [ base transformers ];
   homepage = "http://github.com/ekmett/mtl";
   description = "Monad classes, using functional dependencies";

@@ -1,3 +1,4 @@
+{ mkDerivation, base, lib, transformers }:
 mkDerivation {
   pname = "mtl";
   version = "2.2.2";

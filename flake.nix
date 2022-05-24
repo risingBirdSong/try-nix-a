@@ -25,14 +25,14 @@
       hsPkgs = pkgs.haskell.packages.${compilerVersion}.override {
         overrides = hfinal: hprev: {
           aaa = hfinal.callCabal2nix "aaa" ./. {};
-          mtlA = hfinal.callCabal2nix "mtlA" ./. {};
+          mtlA = hsPkgs.callCabal2nix "mtlA" ./. {};
         };
       };
     in rec {
       packages =
         utils.flattenTree
         {aaa = hsPkgs.aaa;
-        mtlA = hsPkgs.callPackage ./mtlA.nix {};
+        mtlA = hsPkgs.callCabal2nix "mtlA" ./. {};
         };
       # nix flake check
       checks = {

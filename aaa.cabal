@@ -36,7 +36,6 @@ common common-opts
     -with-rtsopts=-N
   build-depends:
       base
-
     -- Codecs
     , aeson
     , deriving-aeson
@@ -58,6 +57,7 @@ common common-opts
   
     -- , split == 0.2.3.3
     -- , mtl == 2.2.0.1
+    -- , mtl == 2.2.1
     , mtl
     -- Utilities
     , text
